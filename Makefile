@@ -1,12 +1,14 @@
-memofib: memofib.o bn.o
-	clang memofib.o bn.o -o memofib
+fibonacci: fibonacci.o main.o tests.o
+	clang main.o tests.o fibonacci.o -o fibonacci_test
 
-memofib.o: memofib.c
-	clang -c memofib.c
+fibonacci.o: fibonacci.o
+	clang -c fibonacci.c
 
-bn.o: bn.c
-	clang -c bn.c
+main.o: main.o
+	clang -c main.c
+
+test.o: tests.o
+	clang -c tests.c
 
 clean:
-	rm *.o memofib
-	
+	rm *.o fibonacci_test
